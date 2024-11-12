@@ -1,0 +1,32 @@
+# Configuration for CSRNet Training
+
+# File settings
+json_directory: "/mnt/towbin.data/shared/smarin/data/20241707_souvik_w318_ev_mex3_squid/training_data_egg/point_anno"
+save_dir: "/mnt/towbin.data/shared/smarin/models/brightfield_egg/csrnet_full-thresh30%-dist25-mindist20-sigma10"
+log_file: "training.log"
+num_best_models: 4
+label: "egg"
+
+# GPU settings
+use_gpu: true
+gpu_device: [0,1]
+
+# Model settings
+pretrained: True
+num_epochs: 1000
+batch_size: 4
+learning_rate: 0.001
+
+transform: {'type': 'percentile', 'lo': 1, 'hi': 99, 'axis': [-2, -1]}
+tile_size: 1024
+overlap: 256
+
+# Count settings
+threshold: 0.3
+min_size: 20
+min_distance: 20
+match_distance: 35
+
+# Inspection settings
+tile_dir: "./tile_inspection_full"
+
